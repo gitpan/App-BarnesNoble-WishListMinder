@@ -1,4 +1,4 @@
-App-BarnesNoble-WishListMinder version 0.001, released August 23, 2014
+App-BarnesNoble-WishListMinder version 0.002, released October 18, 2014
 
 
 This application can fetch wishlists from Barnes & Noble, extract the
@@ -50,10 +50,10 @@ DEPENDENCIES
 
 
 CHANGES
-    Here's what's new in version 0.001 of App-BarnesNoble-WishListMinder:
+    Here's what's new in version 0.002 of App-BarnesNoble-WishListMinder:
     (See the file "Changes" for the full revision history.)
 
-	- Initial release
+	- Store cookies between runs
 
 
 

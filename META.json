@@ -61,7 +61,7 @@
          "web" : "https://github.com/madsen/App-BarnesNoble-WishListMinder"
       }
    },
-   "version" : "0.001",
+   "version" : "0.002",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.018002"
@@ -193,7 +193,7 @@
                }
             },
             "name" : "CJM/@Git/Check",
-            "version" : "2.022"
+            "version" : "2.025"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Commit",
@@ -215,7 +215,7 @@
                }
             },
             "name" : "CJM/@Git/Commit",
-            "version" : "2.022"
+            "version" : "2.025"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Tag",
@@ -223,7 +223,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : null,
                   "signed" : 0,
-                  "tag" : "0.001",
+                  "tag" : "0.002",
                   "tag_format" : "%v%t",
                   "tag_message" : "Tagged %N %v%{ (trial release)}t",
                   "time_zone" : "local"
@@ -233,7 +233,7 @@
                }
             },
             "name" : "CJM/@Git/Tag",
-            "version" : "2.022"
+            "version" : "2.025"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Push",
@@ -249,7 +249,7 @@
                }
             },
             "name" : "CJM/@Git/Push",
-            "version" : "2.022"
+            "version" : "2.025"
          },
          {
             "class" : "Dist::Zilla::Plugin::TestRelease",

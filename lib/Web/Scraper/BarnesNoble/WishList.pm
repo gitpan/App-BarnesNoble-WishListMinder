@@ -17,8 +17,8 @@ package Web::Scraper::BarnesNoble::WishList;
 # ABSTRACT: Create a Web::Scraper object for a Barnes & Noble wishlist
 #---------------------------------------------------------------------
 
-our $VERSION = '0.001'; # VERSION
-# This file is part of App-BarnesNoble-WishListMinder 0.001 (August 23, 2014)
+our $VERSION = '0.002'; # VERSION
+# This file is part of App-BarnesNoble-WishListMinder 0.002 (October 18, 2014)
 
 use 5.010;
 use strict;
@@ -60,9 +60,9 @@ Web::Scraper::BarnesNoble::WishList - Create a Web::Scraper object for a Barnes 
 
 =head1 VERSION
 
-This document describes version 0.001 of
-Web::Scraper::BarnesNoble::WishList, released August 23, 2014
-as part of App-BarnesNoble-WishListMinder version 0.001.
+This document describes version 0.002 of
+Web::Scraper::BarnesNoble::WishList, released October 18, 2014
+as part of App-BarnesNoble-WishListMinder version 0.002.
 
 =head1 SYNOPSIS
 

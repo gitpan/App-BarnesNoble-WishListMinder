@@ -4,8 +4,8 @@ use 5.010;
 use strict;
 use warnings;
 
-our $VERSION = '0.001'; # VERSION
-# This file is part of App-BarnesNoble-WishListMinder 0.001 (August 23, 2014)
+our $VERSION = '0.002'; # VERSION
+# This file is part of App-BarnesNoble-WishListMinder 0.002 (October 18, 2014)
 
 use App::BarnesNoble::WishListMinder;
 
@@ -19,8 +19,8 @@ bn-wishlist - Monitor a Barnes & Noble wishlist for price changes
 
 =head1 VERSION
 
-This document describes C<bn-wishlist>, released August 23, 2014
-as part of App-BarnesNoble-WishListMinder version 0.001.
+This document describes C<bn-wishlist>, released October 18, 2014
+as part of App-BarnesNoble-WishListMinder version 0.002.
 
 =head1 SYNOPSIS
 

@@ -21,8 +21,8 @@ use 5.010;
 use strict;
 use warnings;
 
-our $VERSION = '0.001';
-# This file is part of App-BarnesNoble-WishListMinder 0.001 (August 23, 2014)
+our $VERSION = '0.002';
+# This file is part of App-BarnesNoble-WishListMinder 0.002 (October 18, 2014)
 
 use Path::Tiny;
 #use Smart::Comments;
@@ -72,7 +72,10 @@ sub _format_timestamp {
 has mech => qw(is lazy);
 sub _build_mech {
   require WWW::Mechanize;
-  WWW::Mechanize->new(autocheck => 1);
+  WWW::Mechanize->new(
+    autocheck => 1,
+    cookie_jar => { file => shift->cookie_file, autosave => 1 },
+  );
 } # end _build_mech
 
 has dir => qw(is lazy);
@@ -99,6 +102,11 @@ sub _build_config {
   Config::Tiny->read("$fn", 'utf8')
         or die "Unable to read $fn: " . Config::Tiny->errstr;
 } # end _build_config
+
+has cookie_file => qw(is lazy);
+sub _build_cookie_file {
+  shift->dir->child('cookies.txt');
+} # end _build_cookie_file
 
 has db_file => qw(is lazy);
 sub _build_db_file {
@@ -693,9 +701,9 @@ App::BarnesNoble::WishListMinder - Monitor a Barnes & Noble wishlist for price c
 
 =head1 VERSION
 
-This document describes version 0.001 of
-App::BarnesNoble::WishListMinder, released August 23, 2014
-as part of App-BarnesNoble-WishListMinder version 0.001.
+This document describes version 0.002 of
+App::BarnesNoble::WishListMinder, released October 18, 2014
+as part of App-BarnesNoble-WishListMinder version 0.002.
 
 =head1 SYNOPSIS
 
