@@ -21,8 +21,8 @@ use 5.010;
 use strict;
 use warnings;
 
-our $VERSION = '0.002';
-# This file is part of App-BarnesNoble-WishListMinder 0.002 (October 18, 2014)
+our $VERSION = '0.003';
+# This file is part of App-BarnesNoble-WishListMinder 0.003 (October 25, 2014)
 
 use Path::Tiny;
 #use Smart::Comments;
@@ -585,6 +585,22 @@ sub print_updates
 } # end print_updates
 #---------------------------------------------------------------------
 
+sub have_user_cookie
+{
+  my $have_cookie;
+  my $min_expires = time() + 30;
+
+  shift->mech->cookie_jar->scan(sub {
+    $have_cookie = 1 if $_[1] eq 'userid'
+                    and $_[4] eq '.barnesandnoble.com'
+                    and $_[8] > $min_expires
+  });
+
+  $have_cookie;
+} # end have_user_cookie
+
+#---------------------------------------------------------------------
+
 sub update_wishlists
 {
   my $self = shift;
@@ -595,13 +611,18 @@ sub update_wishlists
   # Ensure we can open the database before we start making web requests
   $self->dbh;
 
-  $self->login;
+  $self->login unless $self->have_user_cookie;
 
   for my $wishlist (sort keys %$config) {
     next if $wishlist eq '_';   # the root INI section
 
     my $response = $m->get( $config->{$wishlist}{wishlist} );
     my $books    = $self->scrape_response($response);
+    unless (@$books) {
+      warn "$config->{$wishlist}{wishlist} has no entries\n";
+      # Save the response for debugging:
+      $self->dir->child("empty-$wishlist.html")->spew_utf8($response->content);
+    }
 #    path("/tmp/wishlist.html")->spew_utf8($response->content);
     $self->write_db($config->{$wishlist}{wishlist}, $response->last_modified // $response->date, $books);
   }
@@ -701,9 +722,9 @@ App::BarnesNoble::WishListMinder - Monitor a Barnes & Noble wishlist for price c
 
 =head1 VERSION
 
-This document describes version 0.002 of
-App::BarnesNoble::WishListMinder, released October 18, 2014
-as part of App-BarnesNoble-WishListMinder version 0.002.
+This document describes version 0.003 of
+App::BarnesNoble::WishListMinder, released October 25, 2014
+as part of App-BarnesNoble-WishListMinder version 0.003.
 
 =head1 SYNOPSIS
 
