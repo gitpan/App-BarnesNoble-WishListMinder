@@ -1,4 +1,4 @@
-App-BarnesNoble-WishListMinder version 0.003, released October 25, 2014
+App-BarnesNoble-WishListMinder version 0.004, released December 20, 2014
 
 
 This application can fetch wishlists from Barnes & Noble, extract the
@@ -50,12 +50,10 @@ DEPENDENCIES
 
 
 CHANGES
-    Here's what's new in version 0.003 of App-BarnesNoble-WishListMinder:
+    Here's what's new in version 0.004 of App-BarnesNoble-WishListMinder:
     (See the file "Changes" for the full revision history.)
 
-	- Don't login if we have a valid userid cookie stored
-	- Warn if a configured wishlist has no books in it
-	  (This could indicate a problem fetching it.)
+	- Add --all-history option
 
 
 

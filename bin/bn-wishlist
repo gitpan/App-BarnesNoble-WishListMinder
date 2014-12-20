@@ -4,8 +4,8 @@ use 5.010;
 use strict;
 use warnings;
 
-our $VERSION = '0.003'; # VERSION
-# This file is part of App-BarnesNoble-WishListMinder 0.003 (October 25, 2014)
+our $VERSION = '0.004'; # VERSION
+# This file is part of App-BarnesNoble-WishListMinder 0.004 (December 20, 2014)
 
 use App::BarnesNoble::WishListMinder;
 
@@ -19,8 +19,8 @@ bn-wishlist - Monitor a Barnes & Noble wishlist for price changes
 
 =head1 VERSION
 
-This document describes C<bn-wishlist>, released October 25, 2014
-as part of App-BarnesNoble-WishListMinder version 0.003.
+This document describes C<bn-wishlist>, released December 20, 2014
+as part of App-BarnesNoble-WishListMinder version 0.004.
 
 =head1 SYNOPSIS
 
@@ -63,6 +63,14 @@ You can also see the price history by specifying the EAN.
 =head1 OPTIONS
 
 =over
+
+=item C<--all-history> (abbreviated C<-a>)
+
+By default, when listing books by title or author, if multiple books
+match the search term, bn-wishlist displays only the EAN, current
+price, title, and author of each matching book.  If only one book
+matches, it displays the full price history of that book.  This option
+causes it to display the full price history for each match.
 
 =item C<--configure>
 
